@@ -4,7 +4,7 @@
 
 [OpenXML SDK](https://github.com/OfficeDev/Open-XML-SDK) helper classes
 
-[![devel0 MyGet Build Status](https://www.myget.org/BuildSource/Badge/devel0?identifier=ccad32de-3eb4-472d-967c-86817bc95994)](https://www.myget.org/)
+[![devel0 MyGet Build Status](https://www.myget.org/BuildSource/Badge/devel0?identifier=1ae8618a-1f30-46be-a8c5-2cbeb8dc76f1)](https://www.myget.org/)
 
 ## install and usage
 
