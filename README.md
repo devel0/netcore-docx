@@ -1,6 +1,6 @@
 # netcore-docx
 
-.NET core docx
+.NET core docx [**under development**]
 
 [OpenXML SDK](https://github.com/OfficeDev/Open-XML-SDK) helper classes
 
