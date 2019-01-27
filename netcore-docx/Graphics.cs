@@ -41,9 +41,10 @@ namespace SearchAThing.DocX
 
         /// <summary>
         /// create an inline image drawing
+        /// use doc.MaxDocPrId()+1 to start an unused docPrId
         /// </summary>
         public static Drawing CreateImageInlineDrawing(this ImagePart imagePart, WordprocessingDocument doc,
-        double widthMM, double heightMM)
+        double widthMM, double heightMM, uint docPrId)
         {
             var w = (int)widthMM.MMToEMU();
             var h = (int)heightMM.MMToEMU();
@@ -64,7 +65,7 @@ namespace SearchAThing.DocX
                          },
                          new DW.DocProperties()
                          {
-                             Id = (UInt32Value)1U,
+                             Id = (uint)docPrId,
                              Name = filename
                          },
                          new DW.NonVisualGraphicFrameDrawingProperties(
@@ -110,8 +111,7 @@ namespace SearchAThing.DocX
                          DistanceFromTop = (UInt32Value)0U,
                          DistanceFromBottom = (UInt32Value)0U,
                          DistanceFromLeft = (UInt32Value)0U,
-                         DistanceFromRight = (UInt32Value)0U,
-                         EditId = "50D07946"
+                         DistanceFromRight = (UInt32Value)0U
                      });
 
             return element;

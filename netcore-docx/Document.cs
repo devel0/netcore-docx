@@ -41,15 +41,7 @@ namespace SearchAThing.DocX
 
                 doc.Save();
             }
-        }
-
-        /// <summary>
-        /// retrieve default section of the document
-        /// </summary>
-        public static SectionProperties GetMainSection(this WordprocessingDocument doc)
-        {
-            return doc.Body().Descendants<SectionProperties>().FirstOrDefault();
-        }
+        }       
 
     }
 

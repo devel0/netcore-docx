@@ -5,6 +5,7 @@ using System.Linq;
 using DocumentFormat.OpenXml;
 using static System.Math;
 using SearchAThing.DocX;
+using DocumentFormat.OpenXml.Drawing.Wordprocessing;
 
 namespace SearchAThing.DocX
 {
@@ -61,6 +62,24 @@ namespace SearchAThing.DocX
         }
 
         /// <summary>
+        /// convert twip to mm
+        /// mm = 1440/25.4 twip
+        /// twip = 25.4/1440 mm
+        /// </summary>
+        public static double TwipToMM(this int twip)
+        {
+            return ((uint)twip).TwipToMM();
+        }
+
+        /// <summary>
+        /// convert given percent 0..100 to fiftieths of a Percent
+        /// </summary>
+        public static int Pct(this double percent)
+        {
+            return (int)(percent * 50);
+        }
+
+        /// <summary>
         /// walk through descendants of given type to retrieve idx-th element
         /// </summary>
         public static T DescendantAt<T>(this OpenXmlElement el, int idx) where T : OpenXmlElement
@@ -80,6 +99,18 @@ namespace SearchAThing.DocX
         public static Body Body(this WordprocessingDocument doc)
         {
             return doc.MainDocumentPart.Document.Descendants<Body>().FirstOrDefault();
+        }
+
+        /// <summary>
+        /// retrieve max id of DocProperties
+        /// </summary>
+        public static uint MaxDocPrId(this WordprocessingDocument doc)
+        {
+            return doc
+               .MainDocumentPart
+               .RootElement
+               .Descendants<DocProperties>()
+               .Max(x => (uint?)x.Id) ?? 0;
         }
 
     }

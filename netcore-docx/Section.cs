@@ -18,6 +18,14 @@ namespace SearchAThing.DocX
     {
 
         /// <summary>
+        /// retrieve default section of the document
+        /// </summary>
+        public static SectionProperties GetMainSection(this WordprocessingDocument doc)
+        {
+            return doc.Body().Descendants<SectionProperties>().FirstOrDefault();
+        }
+
+        /// <summary>
         /// set section pagesize to portrait of given paper type
         /// </summary>
         public static void SetPaper(this SectionProperties section, PaperType paper)
@@ -98,6 +106,19 @@ namespace SearchAThing.DocX
             margin.Top = marginTopMM.MMToTwip();
             margin.Right = (uint)marginRightMM.MMToTwip();
             margin.Bottom = marginBottomMM.MMToTwip();
+        }
+
+        /// <summary>
+        /// retrieve section page margin info
+        /// </summary>
+        public static (double leftMM, double topMM, double rightMM, double bottomMM) GetPageMargin(this SectionProperties section)
+        {
+            var pageMargin = section.Descendants<PageMargin>().First();
+            return (
+                Round(pageMargin.Left.Value.TwipToMM(), 0),
+                Round(pageMargin.Top.Value.TwipToMM(), 0),
+                Round(pageMargin.Right.Value.TwipToMM(), 0),
+                Round(pageMargin.Bottom.Value.TwipToMM(), 0));
         }
 
     }
