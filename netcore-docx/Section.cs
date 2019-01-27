@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System.Linq;
 using DocumentFormat.OpenXml;
 using static System.Math;
+using SearchAThing.DocX;
 
 namespace SearchAThing.DocX
 {
@@ -13,18 +14,13 @@ namespace SearchAThing.DocX
         A4
     };
 
-    public static class DocXUtil
+    public static class SectionExt
     {
-
-        static int MMToTwip(double mm)
-        {
-            return (int)(mm / 25.4 * 1440);
-        }
 
         /// <summary>
         /// set section pagesize to portrait of given paper type
         /// </summary>
-        static void SetPaper(this SectionProperties section, PaperType paper)
+        public static void SetPaper(this SectionProperties section, PaperType paper)
         {
             var pageSize = section.Descendants<PageSize>().FirstOrDefault();
             if (pageSize == null)
@@ -41,15 +37,24 @@ namespace SearchAThing.DocX
                     break;
                 default: throw new Exception($"unsupported paper type {paper}");
             }
-            pageSize.Width = (uint)MMToTwip(w);
-            pageSize.Height = (uint)MMToTwip(h);
+            pageSize.Width = (uint)w.MMToTwip();
+            pageSize.Height = (uint)h.MMToTwip();
             pageSize.Orient = new EnumValue<PageOrientationValues>(PageOrientationValues.Portrait);
+        }
+
+        /// <summary>
+        /// retrieve section page size info
+        /// </summary>
+        public static (double widthMM, double heightMM, PageOrientationValues orient) GetPageSize(this SectionProperties section)
+        {
+            var pageSize = section.Descendants<PageSize>().First();
+            return (Round(pageSize.Width.Value.TwipToMM(), 0), Round(pageSize.Height.Value.TwipToMM(), 0), pageSize.Orient.Value);
         }
 
         /// <summary>
         /// set section pagesize orientation
         /// </summary>
-        static void SetOrientation(this SectionProperties section, PageOrientationValues orientation)
+        public static void SetOrientation(this SectionProperties section, PageOrientationValues orientation)
         {
             var pageSize = section.Descendants<PageSize>().FirstOrDefault();
             if (pageSize == null) throw new Exception($"must set paper first");
@@ -77,53 +82,24 @@ namespace SearchAThing.DocX
             }
         }
 
-        static void SetMargin(this SectionProperties section,
-            int marginLeftMM = 0,
-            int marginTopMM = 0,
-            int marginRightMM = 0,
-            int marginBottomMM = 0)
+        /// <summary>
+        /// set section margin
+        /// </summary>
+        public static void SetMargin(this SectionProperties section,
+            double marginLeftMM = 0,
+            double marginTopMM = 0,
+            double marginRightMM = 0,
+            double marginBottomMM = 0)
         {
             var margin = section.Descendants<PageMargin>().FirstOrDefault();
             if (margin == null)
                 margin = section.AppendChild(new PageMargin());
-            margin.Left = (uint)MMToTwip(marginLeftMM);
-            margin.Top = MMToTwip(marginTopMM);
-            margin.Right = (uint)MMToTwip(marginRightMM);
-            margin.Bottom = MMToTwip(marginBottomMM);
+            margin.Left = (uint)marginLeftMM.MMToTwip();
+            margin.Top = marginTopMM.MMToTwip();
+            margin.Right = (uint)marginRightMM.MMToTwip();
+            margin.Bottom = marginBottomMM.MMToTwip();
         }
 
-        /// <summary>
-        /// create new empty doc
-        /// </summary>
-        public static WordprocessingDocument Create(string pathfilename,
-            PaperType paperType = PaperType.A4,
-            PageOrientationValues orientation = PageOrientationValues.Portrait,
-            int marginLeftMM = 0,
-            int marginTopMM = 0,
-            int marginRightMM = 0,
-            int marginBottomMM = 0)
-        {
-            using (var doc = WordprocessingDocument.Create(pathfilename, WordprocessingDocumentType.Document))
-            {
-                var main = doc.AddMainDocumentPart();
-                main.Document = new Document();
-
-                var body = main.Document.AppendChild(new Body());
-
-                var p = body.AppendChild(new Paragraph());
-                var r = p.AppendChild(new Run());
-                r.AppendChild(new Text(DateTime.Now.ToString()));
-
-                var sect = body.AppendChild(new SectionProperties());
-                sect.SetPaper(paperType);
-                sect.SetOrientation(orientation);
-                sect.SetMargin(marginLeftMM, marginTopMM, marginRightMM, marginBottomMM);
-
-                doc.Save();
-
-                return doc;
-            }
-        }
     }
 
 
