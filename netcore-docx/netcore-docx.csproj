@@ -1,13 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>SearchAThing.DocX</RootNamespace>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
-  </ItemGroup>
-
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>SearchAThing.DocX</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <PackageId>netcore-docx</PackageId>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Title>netcore-docx</Title>
+        <Description>net core wrapper around DocumentFormat.OpenXml</Description>
+        <Authors>Lorenzo Delana</Authors>
+        <PackageTags>netcore docx</PackageTags>
+        <PackageProjectUrl>https://github.com/devel0/netcore-docx</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
+    </ItemGroup>
 </Project>
