@@ -1,16 +1,14 @@
 # netcore-docx
 
+[![NuGet Badge](https://buildstats.info/nuget/netcore-util)](https://www.nuget.org/packages/netcore-docx/)
+
 .NET core docx
 
 [OpenXML SDK](https://github.com/OfficeDev/Open-XML-SDK) helper classes
 
-[![devel0 MyGet Build Status](https://www.myget.org/BuildSource/Badge/devel0?identifier=1ae8618a-1f30-46be-a8c5-2cbeb8dc76f1)](https://www.myget.org/)
+## install
 
-## install and usage
-
-browse [myget instructions](https://www.myget.org/feed/devel0/package/nuget/netcore-docx)
-
-add `nuget.config` where your solution or csproj that refer this library in order to allow other to restore correcly myget dependencies.
+- [nuget package](https://www.nuget.org/packages/netcore-docx/)
 
 ## how this project was built
 
