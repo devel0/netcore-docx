@@ -1,8 +1,15 @@
 # netcore-docx
 
-[![NuGet Badge](https://buildstats.info/nuget/netcore-util)](https://www.nuget.org/packages/netcore-docx/)
+[![NuGet Badge](https://buildstats.info/nuget/netcore-docx)](https://www.nuget.org/packages/netcore-docx/)
 
 .NET core docx
+
+- [API Documentation](https://devel0.github.io/netcore-docx/html/annotated.html)
+- [Changelog](https://github.com/devel0/netcore-docx/commits/master)
+
+<hr/>
+
+## description
 
 [OpenXML SDK](https://github.com/OfficeDev/Open-XML-SDK) helper classes
 
