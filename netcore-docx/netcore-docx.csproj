@@ -4,7 +4,7 @@
         <RootNamespace>SearchAThing.DocX</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageId>netcore-docx</PackageId>
-        <PackageVersion>1.0.0</PackageVersion>
+        <PackageVersion>1.1.0</PackageVersion>
         <Title>netcore-docx</Title>
         <Description>net core wrapper around DocumentFormat.OpenXml</Description>
         <Authors>Lorenzo Delana</Authors>
@@ -13,6 +13,6 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
+        <PackageReference Include="DocumentFormat.OpenXml" Version="2.17.1" />
     </ItemGroup>
 </Project>
