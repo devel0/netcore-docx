@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['getcell_7',['GetCell',['../class_search_a_thing_1_1_doc_x_1_1_table_ext.html#a5781242499c365c531ee053dd516ef51',1,'SearchAThing::DocX::TableExt']]],
-  ['getid_8',['GetId',['../class_search_a_thing_1_1_doc_x_1_1_graphics_ext.html#a260f110ab104e5059c39b3fc2f7cada2',1,'SearchAThing::DocX::GraphicsExt']]],
-  ['getmainsection_9',['GetMainSection',['../class_search_a_thing_1_1_doc_x_1_1_section_ext.html#a21796b5d6da275c30a0d80804f0f0277',1,'SearchAThing::DocX::SectionExt']]],
-  ['getrow_10',['GetRow',['../class_search_a_thing_1_1_doc_x_1_1_table_ext.html#a57cc72e29d9171ce5d4254be050a9108',1,'SearchAThing::DocX::TableExt']]],
-  ['graphicsext_11',['GraphicsExt',['../class_search_a_thing_1_1_doc_x_1_1_graphics_ext.html',1,'SearchAThing::DocX']]]
+  ['edittime_39',['EDITTIME',['../namespace_search_a_thing_1_1_doc_x.html#aecbc687e9a6d4f71d9014bcd224271e9a9bdc78a147c1afaeb222859cd1eee56e',1,'SearchAThing::DocX']]],
+  ['enableautonumbering_3c_20t_20_3e_40',['EnableAutoNumbering&lt; T &gt;',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a9dcd2ade29881b1c2c61531579ff93d0',1,'SearchAThing::DocX::DocXExt']]],
+  ['endmm_41',['EndMM',['../class_search_a_thing_1_1_doc_x_1_1_indentation_options.html#adb98aa5963c78efec86633c0b1667137',1,'SearchAThing::DocX::IndentationOptions']]],
+  ['enumstyles_42',['EnumStyles',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a04381298fea58d133a396daf82f5464d',1,'SearchAThing::DocX::DocXExt']]]
 ];

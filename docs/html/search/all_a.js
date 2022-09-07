@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['tableext_26',['TableExt',['../class_search_a_thing_1_1_doc_x_1_1_table_ext.html',1,'SearchAThing::DocX']]],
-  ['twiptomm_27',['TwipToMM',['../class_search_a_thing_1_1_doc_x_1_1_util_ext.html#aaa0547e20b81fe64df961f95381ebff3',1,'SearchAThing.DocX.UtilExt.TwipToMM(this uint twip)'],['../class_search_a_thing_1_1_doc_x_1_1_util_ext.html#a0d45510398d50110386c3b8f2100fb4f',1,'SearchAThing.DocX.UtilExt.TwipToMM(this int twip)']]]
+  ['mainsectionproperties_146',['MainSectionProperties',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a61a5bbc494c45233306a0d235716ac27',1,'SearchAThing::DocX::DocXExt']]],
+  ['marginbottommm_147',['marginBottomMM',['../class_search_a_thing_1_1_doc_x_1_1_w_p_document_create_params.html#a77470e8b559f91d472464ac02e4f7947',1,'SearchAThing::DocX::WPDocumentCreateParams']]],
+  ['marginleftmm_148',['marginLeftMM',['../class_search_a_thing_1_1_doc_x_1_1_w_p_document_create_params.html#a13737f189b30189f616b0ce9612e9109',1,'SearchAThing::DocX::WPDocumentCreateParams']]],
+  ['marginrightmm_149',['marginRightMM',['../class_search_a_thing_1_1_doc_x_1_1_w_p_document_create_params.html#ac8a1667b842a2b83d84b9d540fb2b5ff',1,'SearchAThing::DocX::WPDocumentCreateParams']]],
+  ['margintopmm_150',['marginTopMM',['../class_search_a_thing_1_1_doc_x_1_1_w_p_document_create_params.html#a716dd4dfe4e84bf62fb6c9b0f2404fbb',1,'SearchAThing::DocX::WPDocumentCreateParams']]],
+  ['maxnumberid_151',['MaxNumberId',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#ae6ae008ca5530eb6771fa6f19f340f91',1,'SearchAThing::DocX::DocXExt']]]
 ];

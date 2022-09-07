@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['twiptomm_55',['TwipToMM',['../class_search_a_thing_1_1_doc_x_1_1_util_ext.html#aaa0547e20b81fe64df961f95381ebff3',1,'SearchAThing.DocX.UtilExt.TwipToMM(this uint twip)'],['../class_search_a_thing_1_1_doc_x_1_1_util_ext.html#a0d45510398d50110386c3b8f2100fb4f',1,'SearchAThing.DocX.UtilExt.TwipToMM(this int twip)']]]
+  ['nextsibling_337',['NextSibling',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a19416090aeaae1459a9b4471e35106ef',1,'SearchAThing::DocX::DocXExt']]],
+  ['nextsibling_3c_20t_20_3e_338',['NextSibling&lt; T &gt;',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#ac1dfb36d327e72192df183dde8090f66',1,'SearchAThing::DocX::DocXExt']]]
 ];

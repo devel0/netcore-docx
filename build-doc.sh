@@ -12,6 +12,6 @@ cd "$exdir"
 
 doxygen
 
-rsync -arvx "$exdir/test/" "$DOCSDIR/test/" \
-    --exclude=bin \
-    --exclude=obj
+# rsync -arvx "$exdir/test/" "$DOCSDIR/test/" \
+#     --exclude=bin \
+#     --exclude=obj
