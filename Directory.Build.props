@@ -1,0 +1,12 @@
+<!--Directory.Build.props: MSBuild properties that are included in every project--><!--Info: https://docs.microsoft.com/en-us/visualstudio/msbuild/customize-your-build?view=vs-2019#directorybuildprops-and-directorybuildtargets-->
+<Project>
+    <PropertyGroup>        
+        <MicrosoftNETTestSdkVersion>17.3.1</MicrosoftNETTestSdkVersion>
+        <xunitVersion>2.4.2</xunitVersion>
+        <dotnetXUnitVersion>2.3.1</dotnetXUnitVersion>
+        <xunitSkippableFactVersion>1.4.13</xunitSkippableFactVersion>
+
+        <NetcoreUtilVersion>4.3.1</NetcoreUtilVersion>
+        <DocumentFormatOpenXmlVersion>2.17.1</DocumentFormatOpenXmlVersion>
+    </PropertyGroup>
+</Project>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- <TargetFrameworks>netstandard2.1</TargetFrameworks> -->
+    <TargetFrameworks>net6.0</TargetFrameworks>
+    <RootNamespace>sampledocs</RootNamespace>    
+    <LangVersion>10</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="$(DocumentFormatOpenXmlVersion)" />
+    <ProjectReference Include="..\netcore-docx\netcore-docx.csproj" />
+  </ItemGroup>
+
+</Project>
