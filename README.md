@@ -4,7 +4,7 @@
 
 .NET core docx
 
-- [API Documentation](https://devel0.github.io/netcore-docx/html/annotated.html)
+- [API Documentation](https://devel0.github.io/netcore-docx/html/class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html)
 - [Changelog](https://github.com/devel0/netcore-docx/commits/master)
 
 <hr/>
