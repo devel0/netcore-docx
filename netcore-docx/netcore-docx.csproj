@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageId>netcore-docx</PackageId>
-        <PackageVersion>2.0.0</PackageVersion>
+        <PackageVersion>2.0.1</PackageVersion>
         <Title>netcore-docx</Title>
         <Description>net core wrapper around DocumentFormat.OpenXml</Description>
         <Authors>Lorenzo Delana</Authors>
