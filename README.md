@@ -407,8 +407,7 @@ doc
 
 ## TODO
 
-- single imagepart insertion
-- double check document validate
+- double check document validate errors
 
 ## debugging
 

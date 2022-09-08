@@ -12,6 +12,8 @@ using SearchAThing;
 using SearchAThing.DocX;
 using static SearchAThing.DocX.Constants;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.IO;
 
 namespace SearchAThing.DocX
 {
@@ -47,7 +49,7 @@ namespace SearchAThing.DocX
             }
 
             return null;
-        }            
+        }
 
         /// <summary>
         /// convert twip to mm<br/>
@@ -64,6 +66,35 @@ namespace SearchAThing.DocX
         /// </summary>
         public static double FactorToPct(this double factor) => factor * 5000;
 
+
+    }
+
+    public static partial class DocXToolkit
+    {
+
+
+        // FILE
+
+        /// <summary>
+        /// retrieve md5sum from file content
+        /// </summary>
+        /// <param name="pathfilename">pathfilename of file for which compute md5sum</param>
+        /// <returns>file md5sum</returns>
+        public static string ComputeMD5Sum(string pathfilename)
+        {
+            var res = "";
+
+            using (var md5 = MD5.Create())
+            {
+                using (var stream = File.OpenRead(pathfilename))
+                {
+                    var chksum = md5.ComputeHash(stream);
+                    res = BitConverter.ToString(chksum);
+                }
+            }
+
+            return res;
+        }
 
     }
 

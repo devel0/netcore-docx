@@ -15,6 +15,7 @@ using SearchAThing;
 using SearchAThing.DocX;
 using static SearchAThing.DocX.Constants;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace SearchAThing.DocX
 {
@@ -38,7 +39,8 @@ namespace SearchAThing.DocX
             ImagePartType? type = null) =>
             doc.AddParagraph("", action: run => run.AddImage(imgPathfilename, widthMM, heightMM, type));
 
-        internal static ImagePart AddImagePart(this WordprocessingDocument doc, string imgPathfilename, ImagePartType? type = null)
+        internal static WrapperManager.ImagePartNfo AddImagePart(this WordprocessingDocument doc,
+            string imgPathfilename, ImagePartType? type = null)
         {
             var _type = ImagePartType.Bmp;
             if (type != null)
@@ -49,12 +51,24 @@ namespace SearchAThing.DocX
                 if (q != null) _type = q.Value;
             }
 
-            var imagePart = doc.MainDocumentPart!.AddImagePart(_type);
-            using (var fs = new FileStream(imgPathfilename, FileMode.Open))
+            var wrapperRef = doc.GetWrapperRef();
+            var imagePartNfo = wrapperRef.TryGetImagePart(imgPathfilename);
+
+            if (imagePartNfo is null)
             {
-                imagePart.FeedData(fs);
+                var imagePart = doc.MainDocumentPart!.AddImagePart(_type);
+
+                using (var fs = new FileStream(imgPathfilename, FileMode.Open))
+                {
+                    imagePart.FeedData(fs);
+                }
+
+                var nfo = wrapperRef.AddImagePartNfo(imgPathfilename, imagePart);
+
+                return nfo;
             }
-            return imagePart;
+            else
+                return imagePartNfo.Value;
         }
 
         /// <summary>
@@ -121,26 +135,22 @@ namespace SearchAThing.DocX
         /// <summary>
         /// create an inline drawing from given imagePart
         /// </summary>
-        /// <param name="imagePart">image part</param>
+        /// <param name="imagePartNfo">image part</param>
         /// <param name="doc">word processing document</param>        
         /// <param name="widthMM">width (mm)</param>
         /// <param name="heightMM">height (mm)</param>
         /// <param name="docPrId">(optional) specific doc property id</param>
         /// <returns>inline image drawing</returns>
-        internal static Drawing CreateImageInlineDrawing(this ImagePart imagePart,
+        internal static Drawing CreateImageInlineDrawing(this WrapperManager.ImagePartNfo imagePartNfo,
             WordprocessingDocument doc,
             double? widthMM = null, double? heightMM = null,
             uint? docPrId = null)
         {
             if (docPrId is null) docPrId = doc.GetMaxDocPrId() + 1;
 
-            var filename = System.IO.Path.GetFileName(imagePart.Uri.OriginalString);
+            var filename = System.IO.Path.GetFileName(imagePartNfo.ImagePart.Uri.OriginalString);
 
-            var imgNfo = UtilToolkit.GetImageNfoFromStream(imagePart.GetStream());
-
-            var imgSize = imgNfo.ImageSizeMM();
-
-            var aspect = ((double)imgSize.widthMM) / ((double)imgSize.heightMM);
+            var aspect = ((double)imagePartNfo.widthMM) / ((double)imagePartNfo.heightMM);
 
             if (widthMM is null && heightMM is not null) // w=?, h                            
                 widthMM = aspect * heightMM;
@@ -150,8 +160,8 @@ namespace SearchAThing.DocX
 
             else if (widthMM is null && heightMM is null) // w=?, h=?
             {
-                widthMM = imgSize.widthMM;
-                heightMM = imgSize.heightMM;
+                widthMM = imagePartNfo.widthMM;
+                heightMM = imagePartNfo.heightMM;
             }
 
             var w = widthMM!.Value.MMToEMU();
@@ -195,7 +205,7 @@ namespace SearchAThing.DocX
                                                  })
                                          )
                                          {
-                                             Embed = imagePart.GetId(doc),
+                                             Embed = imagePartNfo.ImagePart.GetId(doc),
                                              CompressionState =
                                              DW.BlipCompressionValues.Print
                                          },
