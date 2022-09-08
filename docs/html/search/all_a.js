@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['mainsectionproperties_146',['MainSectionProperties',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a61a5bbc494c45233306a0d235716ac27',1,'SearchAThing::DocX::DocXExt']]],
-  ['marginbottommm_147',['marginBottomMM',['../class_search_a_thing_1_1_doc_x_1_1_w_p_document_create_params.html#a77470e8b559f91d472464ac02e4f7947',1,'SearchAThing::DocX::WPDocumentCreateParams']]],
-  ['marginleftmm_148',['marginLeftMM',['../class_search_a_thing_1_1_doc_x_1_1_w_p_document_create_params.html#a13737f189b30189f616b0ce9612e9109',1,'SearchAThing::DocX::WPDocumentCreateParams']]],
-  ['marginrightmm_149',['marginRightMM',['../class_search_a_thing_1_1_doc_x_1_1_w_p_document_create_params.html#ac8a1667b842a2b83d84b9d540fb2b5ff',1,'SearchAThing::DocX::WPDocumentCreateParams']]],
-  ['margintopmm_150',['marginTopMM',['../class_search_a_thing_1_1_doc_x_1_1_w_p_document_create_params.html#a716dd4dfe4e84bf62fb6c9b0f2404fbb',1,'SearchAThing::DocX::WPDocumentCreateParams']]],
-  ['maxnumberid_151',['MaxNumberId',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#ae6ae008ca5530eb6771fa6f19f340f91',1,'SearchAThing::DocX::DocXExt']]]
+  ['lastsavedby_147',['LASTSAVEDBY',['../namespace_search_a_thing_1_1_doc_x.html#aecbc687e9a6d4f71d9014bcd224271e9a5a4f6a27e892ba4b5a15272ee20a5431',1,'SearchAThing::DocX']]],
+  ['left_148',['Left',['../namespace_search_a_thing_1_1_doc_x.html#ae323e3a493c2c1cace5b2a7c03497370a945d5e233cf7d6240f6b783b36a374ff',1,'SearchAThing::DocX']]],
+  ['librarystyleenum_149',['LibraryStyleEnum',['../namespace_search_a_thing_1_1_doc_x.html#a234b6184d6b51c659ca182479c48c199',1,'SearchAThing::DocX']]],
+  ['lineheightmm_150',['LineHeightMM',['../class_search_a_thing_1_1_doc_x_1_1_spacing_between_lines_options.html#a2a2435ef6f0e2676474828d13a631ed8',1,'SearchAThing::DocX::SpacingBetweenLinesOptions']]]
 ];

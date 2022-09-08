@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['nextsibling_152',['NextSibling',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a19416090aeaae1459a9b4471e35106ef',1,'SearchAThing::DocX::DocXExt']]],
-  ['nextsibling_3c_20t_20_3e_153',['NextSibling&lt; T &gt;',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#ac1dfb36d327e72192df183dde8090f66',1,'SearchAThing::DocX::DocXExt']]],
-  ['normal_154',['Normal',['../namespace_search_a_thing_1_1_doc_x.html#a234b6184d6b51c659ca182479c48c199a960b44c579bc2f6818d2daaf9e4c16f0',1,'SearchAThing::DocX']]],
-  ['numchars_155',['NUMCHARS',['../namespace_search_a_thing_1_1_doc_x.html#aecbc687e9a6d4f71d9014bcd224271e9af437892cc75728d0b23097ead27cee13',1,'SearchAThing::DocX']]],
-  ['numpages_156',['NUMPAGES',['../namespace_search_a_thing_1_1_doc_x.html#aecbc687e9a6d4f71d9014bcd224271e9a11f746a1498f3af38174aad74bc33b50',1,'SearchAThing::DocX']]],
-  ['numwords_157',['NUMWORDS',['../namespace_search_a_thing_1_1_doc_x.html#aecbc687e9a6d4f71d9014bcd224271e9a513b5f117dabfb56da7762f21ee30d7c',1,'SearchAThing::DocX']]]
+  ['mainsectionproperties_151',['MainSectionProperties',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a61a5bbc494c45233306a0d235716ac27',1,'SearchAThing::DocX::DocXExt']]],
+  ['maxnumberid_152',['MaxNumberId',['../class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#ae6ae008ca5530eb6771fa6f19f340f91',1,'SearchAThing::DocX::DocXExt']]],
+  ['md5sum_153',['Md5Sum',['../struct_search_a_thing_1_1_doc_x_1_1_wrapper_manager_1_1_image_part_nfo.html#ae40d448ddf0e7af5adfcfc0796740a7e',1,'SearchAThing::DocX::WrapperManager::ImagePartNfo']]]
 ];

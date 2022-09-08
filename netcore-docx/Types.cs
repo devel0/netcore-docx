@@ -11,16 +11,9 @@ using System.Text;
 namespace SearchAThing.DocX
 {
 
-    public class WPDocumentCreateParams
-    {
-        public PaperSize paperSize { get; set; } = PaperSize.A4;
-        public PageOrientationValues orientation { get; set; } = PageOrientationValues.Portrait;
-        public double marginLeftMM { get; set; } = 20;
-        public double marginTopMM { get; set; } = 20;
-        public double marginRightMM { get; set; } = 20;
-        public double marginBottomMM { get; set; } = 20;
-    };
-
+    /// <summary>
+    /// Spacing between lines optional arguments
+    /// </summary>
     public class SpacingBetweenLinesOptions
     {
         public double? BeforeMM { get; set; } = null;
@@ -28,6 +21,9 @@ namespace SearchAThing.DocX
         public double? LineHeightMM { get; set; } = null;
     };
 
+    /// <summary>
+    /// Indentation optional arguments
+    /// </summary>
     public class IndentationOptions
     {
         public double? StartMM { get; set; } = null;
@@ -55,7 +51,7 @@ namespace SearchAThing.DocX
         NUMCHARS,
         NUMPAGES,
         NUMWORDS,
-        TEMPLATE,        
+        TEMPLATE,
 
         // numbering        
         PAGE,

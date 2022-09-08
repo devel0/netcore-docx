@@ -17,9 +17,11 @@ using System.IO;
 namespace SearchAThing.DocX
 {
 
+    /// <summary>
+    /// Document reference wrapper object
+    /// </summary>
     public partial class WrapperManager
     {
-
 
         internal WordprocessingDocument doc;
 

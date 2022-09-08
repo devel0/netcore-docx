@@ -18,6 +18,9 @@ namespace SearchAThing.DocX
 {
 
 
+    /// <summary>
+    /// SearchAThing.DocX extension methods
+    /// </summary>
     public static partial class DocXExt
     {
 
@@ -99,7 +102,7 @@ namespace SearchAThing.DocX
             return mainDocumentPart.DocumentSettingsPart!;
         }
 
-        
+
         public static WordprocessingDocument SetDocDefaults(this WordprocessingDocument doc,
             string? runFontName = null,
             System.Drawing.Color? runFontColor = null,
@@ -201,7 +204,7 @@ namespace SearchAThing.DocX
             return element;
         }
 
-        public static string DocumentOuterXML(this WordprocessingDocument doc) => doc.GetDocument().OuterXml;        
+        public static string DocumentOuterXML(this WordprocessingDocument doc) => doc.GetDocument().OuterXml;
 
         /// <summary>
         /// retrieve max id of document properties
@@ -268,6 +271,9 @@ namespace SearchAThing.DocX
 
     }
 
+    /// <summary>
+    /// SearchAThing.DocX Toolkit methods
+    /// </summary>
     public static partial class DocXToolkit
     {
 
