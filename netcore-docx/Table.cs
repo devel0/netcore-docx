@@ -105,7 +105,7 @@ namespace SearchAThing.DocX
         {
             colIdx = table.GetColumnCount();
 
-            var res = table.AddColumn(colWidthMM, action);            
+            var res = table.AddColumn(colWidthMM, action);
 
             return res;
         }
@@ -168,109 +168,100 @@ namespace SearchAThing.DocX
             return table;
         }
 
-        static void SetTableBorderOutside(
-            TableRow row, TableCell cell,
-            int rowCount, int colCount,
-            int rowIdx, int colIdx,
-            ref LeftBorder? leftBorder,
-            ref TopBorder? topBorder,
-            ref RightBorder? rightBorder,
-            ref BottomBorder? bottomBorder,
-            Action<BorderType>? customAction)
-        {
-            if (colIdx == 0)
-            {
-                leftBorder = new LeftBorder();
-                customAction?.Invoke(leftBorder);
-            }
-            if (rowIdx == 0)
-            {
-                topBorder = new TopBorder();
-                customAction?.Invoke(topBorder);
-            }
-            if (colIdx == colCount - 1)
-            {
-                rightBorder = new RightBorder();
-                customAction?.Invoke(rightBorder);
-            }
-            if (rowIdx == rowCount - 1)
-            {
-                bottomBorder = new BottomBorder();
-                customAction?.Invoke(bottomBorder);
-            }
-        }
-
         /// <summary>
         /// set table borders for only outside borders mode
         /// </summary>
         /// <param name="table">table</param>
         /// <param name="type">type of border</param>
-        public static Table SetBorderOutside(this Table table, BorderValues type = BorderValues.Single) =>
-            table.SetBorder(SetTableBorderOutside, borderType => borderType.Val = type);
-
-        static void SetTableBorderAll(
-            TableRow row, TableCell cell,
-            int rowCount, int colCount,
-            int rowIdx, int colIdx,
-            ref LeftBorder? leftBorder,
-            ref TopBorder? topBorder,
-            ref RightBorder? rightBorder,
-            ref BottomBorder? bottomBorder,
-            Action<BorderType>? customAction)
-        {
-            leftBorder = new LeftBorder();
-            customAction?.Invoke(leftBorder);
-
-            topBorder = new TopBorder();
-            customAction?.Invoke(topBorder);
-
-            rightBorder = new RightBorder();
-            customAction?.Invoke(rightBorder);
-
-            bottomBorder = new BottomBorder();
-            customAction?.Invoke(bottomBorder);
-        }
+        public static Table SetBordersOutside(this Table table, BorderValues type = BorderValues.Single) =>
+            table.SetBorders((args) =>
+            {
+                if (args.colIdx == 0) args.leftBorder = new LeftBorder() { Val = type };
+                if (args.rowIdx == 0) args.topBorder = new TopBorder() { Val = type };
+                if (args.colIdx == args.colCount - 1) args.rightBorder = new RightBorder() { Val = type };
+                if (args.rowIdx == args.rowCount - 1) args.bottomBorder = new BottomBorder() { Val = type };
+            });
 
         /// <summary>
         /// set table borders all cell borders
         /// </summary>
         /// <param name="table">table</param>
         /// <param name="type">type of border</param>
-        public static Table SetBorderAll(this Table table, BorderValues type = BorderValues.Single) =>
-            table.SetBorder(SetTableBorderAll, borderType => borderType.Val = type);
+        public static Table SetBordersAll(this Table table, BorderValues type = BorderValues.Single) =>
+            table.SetBorders((args) =>
+            {
+                args.leftBorder = new LeftBorder() { Val = type };
+                args.topBorder = new TopBorder() { Val = type };
+                args.rightBorder = new RightBorder() { Val = type };
+                args.bottomBorder = new BottomBorder() { Val = type };
+            });
 
         /// <summary>
-        /// delegate to set cell border
+        /// SetBorder args.
+        /// this object will created during set border on cell an passed to the custom user action;
+        /// by setting if any leftBorder, topBorder, rightBorder, bottomBorder fields
+        /// borders can be modified
         /// </summary>
-        /// <param name="row">current row</param>
-        /// <param name="cell">current cell</param>        
-        /// <param name="rowCount">numbers of rows</param>
-        /// <param name="colCount">numbers of columns</param>
-        /// <param name="rowIdx">current row zerobased index</param>
-        /// <param name="colIdx">current col zerobased index</param>        
-        /// <param name="leftBorder">left border reference ( if null mean it was not exists, can be reassigned to a new )</param>
-        /// <param name="topBorder">top border reference ( if null mean it was not exists, can be reassigned to a new )</param>
-        /// <param name="rightBorder">right border reference ( if null mean it was not exists, can be reassigned to a new )</param>
-        /// <param name="bottomBorder">bottom border reference ( if null mean it was not exists, can be reassigned to a new )</param>
-        /// <param name="customAction">custom action flowing from SetBorder method caller</param>
-        public delegate void SetTableBorderTypeDelegate(
-            TableRow row, TableCell cell,
-            int rowCount, int colCount,
-            int rowIdx, int colIdx,
-            ref LeftBorder? leftBorder,
-            ref TopBorder? topBorder,
-            ref RightBorder? rightBorder,
-            ref BottomBorder? bottomBorder,
-            Action<BorderType>? customAction);
+        public class CustomBorderActionArgs
+        {
+            /// <summary>
+            /// current row
+            /// </summary>        
+            public TableRow row;
+
+            /// <summary>
+            /// current cell
+            /// </summary>
+            public TableCell cell;
+
+            /// <summary>
+            /// numbers of rows
+            /// </summary>
+            public int rowCount;
+
+            /// <summary>
+            /// numbers of columns
+            /// </summary>
+            public int colCount;
+
+            /// <summary>
+            /// current row zerobased index
+            /// </summary>
+            public int rowIdx;
+
+            /// <summary>
+            /// current col zerobased index
+            /// </summary>
+            public int colIdx;
+
+            /// <summary>
+            /// left border reference ( if null mean it was not exists, can be reassigned to a new )
+            /// </summary>
+            public LeftBorder? leftBorder;
+
+            /// <summary>
+            /// top border reference ( if null mean it was not exists, can be reassigned to a new )
+            /// </summary>
+            public TopBorder? topBorder;
+
+            /// <summary>
+            /// right border reference ( if null mean it was not exists, can be reassigned to a new )
+            /// </summary>
+            public RightBorder? rightBorder;
+
+            /// <summary>
+            /// bottom border reference ( if null mean it was not exists, can be reassigned to a new )
+            /// </summary>
+            public BottomBorder? bottomBorder;
+        };
 
         /// <summary>
-        /// set border of table ; custom border foreach cell can specified using action
+        /// set table border by applying given action to each cell border ( see CustomBorderActionArgs )
         /// </summary>
-        /// <param name="table">table</param>        
-        /// <param name="action">custom action foreach cell</param>
-        /// <param name="customAction">custom action that will applied to border changed by main action</param>
+        /// <param name="table">table to which set borders</param>
+        /// <param name="action">custom user action to change border depending on conditions; this will invoked foreach cell border and in their arguments information about current cell location are available (see SetBordersOutside for an example)</param>
         /// <returns>table</returns>
-        public static Table SetBorder(this Table table, SetTableBorderTypeDelegate action, Action<BorderType>? customAction = null)
+        public static Table SetBorders(this Table table, Action<CustomBorderActionArgs> action)
         {
             var columnCount = table.GetColumnCount();
             var rowsCount = table.GetRowCount();
@@ -292,27 +283,37 @@ namespace SearchAThing.DocX
                     var rightBorder = borders is null ? null : borders.RightBorder;
                     var bottomBorder = borders is null ? null : borders.BottomBorder;
 
-                    action.Invoke(
-                        row, cell,
-                        rowsCount, columnCount,
-                        r, c,
-                        ref leftBorder, ref topBorder, ref rightBorder, ref bottomBorder, customAction);
+                    var actionArg = new CustomBorderActionArgs
+                    {
+                        row = row,
+                        cell = cell,
+                        rowCount = rowsCount,
+                        colCount = columnCount,
+                        rowIdx = r,
+                        colIdx = c,
+                        leftBorder = leftBorder,
+                        topBorder = topBorder,
+                        rightBorder = rightBorder,
+                        bottomBorder = bottomBorder
+                    };
+
+                    action(actionArg);
 
                     if (borders is null)
                     {
-                        var leftApplied = leftBorder is not null;
-                        var topApplied = topBorder is not null;
-                        var rightApplied = rightBorder is not null;
-                        var bottomApplied = bottomBorder is not null;
+                        var leftApplied = actionArg.leftBorder is not null;
+                        var topApplied = actionArg.topBorder is not null;
+                        var rightApplied = actionArg.rightBorder is not null;
+                        var bottomApplied = actionArg.bottomBorder is not null;
 
                         if (leftApplied || topApplied || rightApplied || bottomApplied)
                         {
                             borders = cell.GetTableCellProperties().GetTableCellBorders();
 
-                            if (leftApplied) borders.LeftBorder = leftBorder;
-                            if (topApplied) borders.TopBorder = topBorder;
-                            if (rightApplied) borders.RightBorder = rightBorder;
-                            if (bottomApplied) borders.BottomBorder = bottomBorder;
+                            if (leftApplied) borders.LeftBorder = actionArg.leftBorder;
+                            if (topApplied) borders.TopBorder = actionArg.topBorder;
+                            if (rightApplied) borders.RightBorder = actionArg.rightBorder;
+                            if (bottomApplied) borders.BottomBorder = actionArg.bottomBorder;
                         }
                     }
                 }
