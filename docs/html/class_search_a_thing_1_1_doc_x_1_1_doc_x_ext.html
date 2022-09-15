@@ -141,6 +141,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:acfb1a224074c6524225ed6d170d2c259"><td class="memItemLeft" align="right" valign="top">static Body&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#acfb1a224074c6524225ed6d170d2c259">GetBody</a> (this OpenXmlElement element)</td></tr>
 <tr class="memdesc:acfb1a224074c6524225ed6d170d2c259"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve body from OpenXmlElement walking through parent  <a href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#acfb1a224074c6524225ed6d170d2c259">More...</a><br /></td></tr>
 <tr class="separator:acfb1a224074c6524225ed6d170d2c259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ffba65bd6724d8f2e989e4976664df"><td class="memItemLeft" align="right" valign="top">static ? T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#aa3ffba65bd6724d8f2e989e4976664df">GetOrCreate&lt; T &gt;</a> (this OpenXmlElement element, bool createIfNotExists, int? insertAtIdx=null, Action&lt; T &gt;? onNew=null)</td></tr>
+<tr class="memdesc:aa3ffba65bd6724d8f2e989e4976664df"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve typed element type child from the given owner element. if createIfNotExists was true and child not exists a new child will inserted. by default new child will append or if insertAtIdx specified chilld will inserted at the given index.  <a href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#aa3ffba65bd6724d8f2e989e4976664df">More...</a><br /></td></tr>
+<tr class="separator:aa3ffba65bd6724d8f2e989e4976664df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dcd2ade29881b1c2c61531579ff93d0"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a9dcd2ade29881b1c2c61531579ff93d0">EnableAutoNumbering&lt; T &gt;</a> (this T element, NumberFormatValues type=NumberFormatValues.Bullet, int level=0, bool structured=false)</td></tr>
 <tr class="separator:a9dcd2ade29881b1c2c61531579ff93d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6118ee802ffdce33b625eee1a4562ae0"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a6118ee802ffdce33b625eee1a4562ae0">IncAutoNumbering&lt; T &gt;</a> (this T element, NumberFormatValues type=NumberFormatValues.Bullet, int level=0, bool structured=false)</td></tr>
@@ -436,6 +439,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad0faf71cb49f61a3c7ed338c3b7c6e61"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#ad0faf71cb49f61a3c7ed338c3b7c6e61">GetColumnCount</a> (this Table table)</td></tr>
 <tr class="memdesc:ad0faf71cb49f61a3c7ed338c3b7c6e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve the number of table columns  <a href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#ad0faf71cb49f61a3c7ed338c3b7c6e61">More...</a><br /></td></tr>
 <tr class="separator:ad0faf71cb49f61a3c7ed338c3b7c6e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21b99c623e5fc91ca3e51234ad742213"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a21b99c623e5fc91ca3e51234ad742213">GetSpanCount</a> (this TableCell cell)</td></tr>
+<tr class="memdesc:a21b99c623e5fc91ca3e51234ad742213"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve the quantity of span this cell belong to  <a href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a21b99c623e5fc91ca3e51234ad742213">More...</a><br /></td></tr>
+<tr class="separator:a21b99c623e5fc91ca3e51234ad742213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07b8c6010c1e163a1fcdafd892a9cdfd"><td class="memItemLeft" align="right" valign="top">static TableCell&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a07b8c6010c1e163a1fcdafd892a9cdfd">SetSpanCount</a> (this TableCell cell, int spanCount)</td></tr>
+<tr class="memdesc:a07b8c6010c1e163a1fcdafd892a9cdfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">set table cell span count  <a href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a07b8c6010c1e163a1fcdafd892a9cdfd">More...</a><br /></td></tr>
+<tr class="separator:a07b8c6010c1e163a1fcdafd892a9cdfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a655133b4e5ea3e3143ff4ff446775192"><td class="memItemLeft" align="right" valign="top">static TableCell&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a655133b4e5ea3e3143ff4ff446775192">SetVerticalAlign</a> (this TableCell cell, TableVerticalAlignmentValues valign)</td></tr>
+<tr class="memdesc:a655133b4e5ea3e3143ff4ff446775192"><td class="mdescLeft">&#160;</td><td class="mdescRight">set cell vertical align  <a href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a655133b4e5ea3e3143ff4ff446775192">More...</a><br /></td></tr>
+<tr class="separator:a655133b4e5ea3e3143ff4ff446775192"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14434020d6b55e609b42b063e021eb1a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a14434020d6b55e609b42b063e021eb1a">GetRowCount</a> (this Table table)</td></tr>
 <tr class="memdesc:a14434020d6b55e609b42b063e021eb1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">retrieve the number of table rows  <a href="class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html#a14434020d6b55e609b42b063e021eb1a">More...</a><br /></td></tr>
 <tr class="separator:a14434020d6b55e609b42b063e021eb1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3345,6 +3357,77 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa3ffba65bd6724d8f2e989e4976664df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ffba65bd6724d8f2e989e4976664df">&#9670;&nbsp;</a></span>GetOrCreate&lt; T &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ? T GetOrCreate&lt; T &gt; </td>
+          <td>(</td>
+          <td class="paramtype">this OpenXmlElement&#160;</td>
+          <td class="paramname"><em>element</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>createIfNotExists</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int?&#160;</td>
+          <td class="paramname"><em>insertAtIdx</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Action&lt; T &gt;?&#160;</td>
+          <td class="paramname"><em>onNew</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>retrieve typed element type child from the given owner element. if createIfNotExists was true and child not exists a new child will inserted. by default new child will append or if insertAtIdx specified chilld will inserted at the given index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">element</td><td>element owner</td></tr>
+    <tr><td class="paramname">createIfNotExists</td><td>(optional) if true and child not found a new one will created</td></tr>
+    <tr><td class="paramname">insertAtIdx</td><td>(optional) if specified new child will inserted at given index</td></tr>
+    <tr><td class="paramname">onNew</td><td>(optional) custom action to apply to child if it is created because missing</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>existing or new child</dd></dl>
+<p><br  />
+ </p>
+<div class="typeconstraint">
+<dl><dt><b>Type Constraints</b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em>T</em></td><td>&#160;:</td><td valign="top"><em>OpenXmlElement</em></td><td>&#160;</td></tr>
+<tr><td valign="top"><em>T</em></td><td>&#160;:</td><td valign="top"><em>new()</em></td><td>&#160;</td></tr>
+</table>
+</dd>
+</dl>
+</div>
+
+</div>
+</div>
 <a id="a1f54ef83d17f448ac0d9b33f62cf6822"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f54ef83d17f448ac0d9b33f62cf6822">&#9670;&nbsp;</a></span>GetPageSize()</h2>
 
@@ -3752,6 +3835,41 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21b99c623e5fc91ca3e51234ad742213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b99c623e5fc91ca3e51234ad742213">&#9670;&nbsp;</a></span>GetSpanCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int GetSpanCount </td>
+          <td>(</td>
+          <td class="paramtype">this TableCell&#160;</td>
+          <td class="paramname"><em>cell</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>retrieve the quantity of span this cell belong to </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>cell</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>nr. of span ( if not defined 1 will returned )</dd></dl>
 
 </div>
 </div>
@@ -6184,6 +6302,52 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a07b8c6010c1e163a1fcdafd892a9cdfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07b8c6010c1e163a1fcdafd892a9cdfd">&#9670;&nbsp;</a></span>SetSpanCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static TableCell SetSpanCount </td>
+          <td>(</td>
+          <td class="paramtype">this TableCell&#160;</td>
+          <td class="paramname"><em>cell</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>spanCount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>set table cell span count </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>cell</td></tr>
+    <tr><td class="paramname">spanCount</td><td>nr of cell span this included</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="a7624dabfe11bc4c60048feebefa1f2a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7624dabfe11bc4c60048feebefa1f2a1">&#9670;&nbsp;</a></span>SetSubscript()</h2>
 
@@ -6526,6 +6690,52 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <p><br  />
  </p><dl class="section return"><dt>Returns</dt><dd>paragraph</dd></dl>
+
+</div>
+</div>
+<a id="a655133b4e5ea3e3143ff4ff446775192"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a655133b4e5ea3e3143ff4ff446775192">&#9670;&nbsp;</a></span>SetVerticalAlign()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static TableCell SetVerticalAlign </td>
+          <td>(</td>
+          <td class="paramtype">this TableCell&#160;</td>
+          <td class="paramname"><em>cell</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TableVerticalAlignmentValues&#160;</td>
+          <td class="paramname"><em>valign</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>set cell vertical align </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>cell</td></tr>
+    <tr><td class="paramname">valign</td><td>type of vertical alignment</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>cell</dd></dl>
 
 </div>
 </div>
