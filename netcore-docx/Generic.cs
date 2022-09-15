@@ -84,7 +84,7 @@ namespace SearchAThing.DocX
         /// <param name="insertAtIdx">(optional) if specified new child will inserted at given index</param>
         /// <param name="onNew">(optional) custom action to apply to child if it is created because missing</param>
         /// <returns>existing or new child</returns>        
-        internal static T? GetOrCreate<T>(this OpenXmlElement element,
+        public static T? GetOrCreate<T>(this OpenXmlElement element,
             bool createIfNotExists,
             int? insertAtIdx = null,
             Action<T>? onNew = null)
