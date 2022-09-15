@@ -176,7 +176,7 @@ public static partial class Samples
         }
 
         doc
-            .AddBreak();            
+            .AddBreak();
 
         //-----------------------------------------------------------            
         // IMAGES
@@ -222,7 +222,7 @@ public static partial class Samples
                     var cellsCount = row.Elements<TableCell>().Count();
                     for (int i = 0; i < cellsCount; ++i) row.GetCell(i).SetPadding(2);
                 })
-                .SetBorderAll()
+                .SetBordersAll()
             .AddBreak();
 
         //-----------------------------------------------------------            
@@ -257,8 +257,25 @@ public static partial class Samples
                 row.GetCell(1).GetFirstChild<Paragraph>()!.AddField(t).SetUniformMargin(2);
             });
         }
+        
+        // short version
+        //tbl.SetBordersOutside(BorderValues.Single);                
 
-        tbl.SetBorderOutside(BorderValues.Single);        
+        // custom version
+        tbl.SetBorders((args) =>
+        {
+            if (args.colIdx == 0) 
+                args.leftBorder = new LeftBorder() { Val = BorderValues.Single };
+
+            if (args.rowIdx == 0) 
+                args.topBorder = new TopBorder() { Val = BorderValues.Single };
+
+            if (args.colIdx == args.colCount - 1) 
+                args.rightBorder = new RightBorder() { Val = BorderValues.Single };
+
+            if (args.rowIdx == args.rowCount - 1) 
+                args.bottomBorder = new BottomBorder() { Val = BorderValues.Single };
+        });
 
         doc
             .AddBreak();

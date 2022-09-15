@@ -363,7 +363,24 @@ foreach (var t in Enum.GetValues<FieldEnum>())
     });
 }
 
-tbl.SetBorderOutside(BorderValues.Single);
+// short version
+//tbl.SetBordersOutside(BorderValues.Single);                
+
+// custom version
+tbl.SetBorders((args) =>
+{
+    if (args.colIdx == 0) 
+        args.leftBorder = new LeftBorder() { Val = BorderValues.Single };
+
+    if (args.rowIdx == 0) 
+        args.topBorder = new TopBorder() { Val = BorderValues.Single };
+
+    if (args.colIdx == args.colCount - 1) 
+        args.rightBorder = new RightBorder() { Val = BorderValues.Single };
+
+    if (args.rowIdx == args.rowCount - 1) 
+        args.bottomBorder = new BottomBorder() { Val = BorderValues.Single };
+});
 
 doc
     .AddBreak();
@@ -374,7 +391,7 @@ doc
 - table `AddRow()` adds an empty row already filled with enough cells to cover actual table columns
 - row `GetCell()` retrieve Table Cell from which you may use `.SetParagraph()` in place of `.AddParagraph()` because empty cells prepared with an empty paragraph.
     - an helper row `SetUniformMargin()` allow to set margin around cell contents
-- table `SetBorderOutside()` sets outer table cells border to Single or specified Border type. Alternatively `SetBorderAll()` or `SetBorder()` can be used to set all cells outer/inner or custom border.
+- table `SetBordersOutside()` sets outer table cells border to Single or specified Border type. Alternatively `SetBordersAll()` or `SetBorders()` can be used to set all cells outer/inner or custom border.
 
 ### numbering
 
