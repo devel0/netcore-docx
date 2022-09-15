@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['imagepart_383',['ImagePart',['../struct_search_a_thing_1_1_doc_x_1_1_wrapper_manager_1_1_image_part_nfo.html#acc7ab3223b8edf0e87662734189b3a78',1,'SearchAThing::DocX::WrapperManager::ImagePartNfo']]]
+  ['default_5ffont_5fname_396',['DEFAULT_FONT_NAME',['../class_search_a_thing_1_1_doc_x_1_1_constants.html#a7557633c497f1727aa67dff49cff6de8',1,'SearchAThing::DocX::Constants']]],
+  ['default_5ffont_5fsize_5fpt_397',['DEFAULT_FONT_SIZE_PT',['../class_search_a_thing_1_1_doc_x_1_1_constants.html#a54294fde07bd50d230b3699fed359208',1,'SearchAThing::DocX::Constants']]]
 ];
