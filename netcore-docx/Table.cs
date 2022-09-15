@@ -94,6 +94,23 @@ namespace SearchAThing.DocX
         }
 
         /// <summary>
+        /// adds a column to the table outing colIdx var
+        /// </summary>
+        /// <param name="table">table</param>        
+        /// <param name="colIdx">(out) column index</param>
+        /// <param name="colWidthMM">column width (mm) ; note: if table is in % then column widths will normalized</param>
+        /// <param name="action">(optional) action on created GridColumn</param>
+        /// <returns>grid column</returns>
+        public static Table AddColumn(this Table table, double colWidthMM, out int colIdx, Action<GridColumn>? action = null)
+        {
+            colIdx = table.GetColumnCount();
+
+            var res = table.AddColumn(colWidthMM, action);            
+
+            return res;
+        }
+
+        /// <summary>
         /// adds a column to the table
         /// </summary>
         /// <param name="table">table</param>
