@@ -178,7 +178,7 @@ namespace SearchAThing.DocX
             {
                 if (args.colIdx == 0) args.leftBorder = new LeftBorder() { Val = type };
                 if (args.rowIdx == 0) args.topBorder = new TopBorder() { Val = type };
-                if (args.colIdx == args.colCount - 1) args.rightBorder = new RightBorder() { Val = type };
+                if (args.colIdx + args.cellSpanCount == args.colCount) args.rightBorder = new RightBorder() { Val = type };
                 if (args.rowIdx == args.rowCount - 1) args.bottomBorder = new BottomBorder() { Val = type };
             });
 
@@ -213,6 +213,11 @@ namespace SearchAThing.DocX
             /// current cell
             /// </summary>
             public TableCell cell;
+
+            /// <summary>
+            /// current cell span count ( min 1 )
+            /// </summary>
+            public int cellSpanCount;
 
             /// <summary>
             /// numbers of rows
@@ -270,9 +275,12 @@ namespace SearchAThing.DocX
             {
                 var row = table.GetRow(r);
 
-                for (int c = 0; c < columnCount; ++c)
+                int c = 0;
+                var cells = row.Elements<TableCell>().ToList();
+
+                foreach (var cell in cells)
                 {
-                    var cell = row.GetCell(c);
+                    var cellSpanCount = cell.GetSpanCount();
 
                     var borders = cell
                         .GetOrCreate<TableCellProperties>(createIfNotExists: false)?
@@ -291,6 +299,7 @@ namespace SearchAThing.DocX
                         colCount = columnCount,
                         rowIdx = r,
                         colIdx = c,
+                        cellSpanCount = cellSpanCount,
                         leftBorder = leftBorder,
                         topBorder = topBorder,
                         rightBorder = rightBorder,
@@ -316,6 +325,8 @@ namespace SearchAThing.DocX
                             if (bottomApplied) borders.BottomBorder = actionArg.bottomBorder;
                         }
                     }
+
+                    c += cellSpanCount;
                 }
             }
 
@@ -437,6 +448,57 @@ namespace SearchAThing.DocX
         /// <param name="table">table</param>        
         /// <returns>number of columns</returns>
         public static int GetColumnCount(this Table table) => table.Grid().Elements<GridColumn>().Count();
+
+        /// <summary>
+        /// retrieve the quantity of span this cell belong to
+        /// </summary>
+        /// <param name="cell">cell</param>
+        /// <returns>nr. of span ( if not defined 1 will returned )</returns>
+        public static int GetSpanCount(this TableCell cell)
+        {
+            var q = cell
+                .GetOrCreate<TableCellProperties>(createIfNotExists: false)?
+                .GetOrCreate<GridSpan>(createIfNotExists: false);
+
+            if (q is not null && q.Val is not null)
+                return q.Val;
+
+            return 1;
+        }
+
+        /// <summary>
+        /// set table cell span count
+        /// </summary>
+        /// <param name="cell">cell</param>
+        /// <param name="spanCount">nr of cell span this included</param>
+        /// <returns></returns>
+        public static TableCell SetSpanCount(this TableCell cell, int spanCount)
+        {
+            var gridspan = cell
+                .GetOrCreate<TableCellProperties>(createIfNotExists: true)?
+                .GetOrCreate<GridSpan>(createIfNotExists: true)!;
+
+            gridspan.Val = Max(1, spanCount);
+
+            return cell;
+        }
+
+        /// <summary>
+        /// set cell vertical align
+        /// </summary>
+        /// <param name="cell">cell</param>
+        /// <param name="valign">type of vertical alignment</param>
+        /// <returns>cell</returns>
+        public static TableCell SetVerticalAlign(this TableCell cell, TableVerticalAlignmentValues valign)
+        {
+            var cellVerticalAlign = cell
+                .GetTableCellProperties()
+                .GetOrCreate<TableCellVerticalAlignment>(createIfNotExists: true)!;
+
+            cellVerticalAlign.Val = valign;
+
+            return cell;
+        }
 
         /// <summary>
         /// retrieve the number of table rows
