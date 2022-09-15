@@ -84,7 +84,7 @@ namespace SearchAThing.DocX
 
         public static ParagraphProperties? GetProperties(this Paragraph paragraph,
             bool createIfNotExists = false,
-            int? insertAtIdx = null) =>
+            int insertAtIdx = 0) =>
             paragraph.GetOrCreate<ParagraphProperties>(createIfNotExists, insertAtIdx);
 
         /// <summary>
@@ -563,6 +563,37 @@ namespace SearchAThing.DocX
         public static Run SetText(this Run run, string newtext)
         {
             run.GetText(createIfNotExists: true)!.Text = newtext;
+
+            return run;
+        }
+
+        /// <summary>
+        /// set run as subscript
+        /// </summary>
+        /// <param name="run">run which apply subscript</param>
+        /// <returns>run</returns>
+        public static Run SetSubscript(this Run run) => run.SetVerticalPosition(VerticalPositionValues.Subscript);
+
+        /// <summary>
+        /// set run as superscript
+        /// </summary>
+        /// <param name="run">run which apply superscript</param>
+        /// <returns>run</returns>
+        public static Run SetSuperscript(this Run run) => run.SetVerticalPosition(VerticalPositionValues.Superscript);
+
+        /// <summary>
+        /// set run vertical position
+        /// </summary>
+        /// <param name="run">run</param>
+        /// <param name="pos">pos</param>
+        /// <returns>run with changed vertical position</returns>
+        public static Run SetVerticalPosition(this Run run, VerticalPositionValues pos)
+        {
+            var rp = run.GetProperties(createIfNotExists: true)!;
+
+            var vp = rp.GetOrCreate<VerticalTextAlignment>(createIfNotExists: true)!;
+
+            vp.Val = pos;
 
             return run;
         }
