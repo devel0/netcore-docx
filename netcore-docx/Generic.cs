@@ -224,6 +224,27 @@ namespace SearchAThing.DocX
         }
 
         /// <summary>
+        /// add given customParagraph ( it will automatically detached from its parent if not already null )
+        /// </summary>
+        /// <param name="elementBefore">elemento to which append custom paragraph</param>
+        /// <param name="customParagraph">custom paragraph</param>
+        /// <returns>custom paragraph</returns>
+        public static Paragraph AddParagraph(this OpenXmlElement elementBefore,
+            Paragraph customParagraph)
+        {
+            if (customParagraph.Parent is not null)
+            {
+                customParagraph.Remove();
+            }
+
+            if (elementBefore.Parent is null) throw new ArgumentException($"given element before has null Parent");
+
+            elementBefore.Parent.Append(customParagraph);
+
+            return customParagraph;
+        }
+
+        /// <summary>
         /// add a new paragraph after given paragraphBefore or to end of document
         /// </summary>
         /// <param name="doc">word processing document</param>

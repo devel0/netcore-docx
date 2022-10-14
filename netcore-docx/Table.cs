@@ -56,6 +56,22 @@ namespace SearchAThing.DocX
         public static TableCell SetPadding(this TableCell cell, double? paddingMM = null) =>
             cell.SetPadding(paddingMM, paddingMM, paddingMM, paddingMM);
 
+        /// <summary>
+        /// replace cell paragraph with given one
+        /// </summary>
+        /// <param name="cell">cell</param>
+        /// <param name="newParagraph">new paragraph to set in place of existing cell paragraph</param>
+        /// <returns>given new pragraph</returns>
+        public static Paragraph ReplaceParagraph(this TableCell cell, Paragraph newParagraph)
+        {
+            var toremove = cell.Elements<Paragraph>().ToList();
+            foreach (var x in toremove) x.Remove();
+
+            cell.Append(newParagraph);
+
+            return newParagraph;
+        }
+
         public static Paragraph SetParagraph(this TableCell cell, string? text = null, Action<Run>? action = null)
         {
             var toremove = cell.Elements<Paragraph>().ToList();
