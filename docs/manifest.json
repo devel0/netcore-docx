@@ -1,0 +1,205 @@
+{
+  "source_base_path": "/home/devel0/Documents/opensource/netcore-docx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.Constants.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.DocXExt.CustomBorderActionArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.DocXExt.CustomBorderActionArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.DocXExt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.DocXExt.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.DocXToolkit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.DocXToolkit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.FieldEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.FieldEnum.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.FindTextResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.FindTextResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.IndentationOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.IndentationOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.LibraryStyleEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.LibraryStyleEnum.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.SpacingBetweenLinesOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.SpacingBetweenLinesOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.TableCellBorderSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.TableCellBorderSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.TextNfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.TextNfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.WrapperManager.ImagePartNfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.WrapperManager.ImagePartNfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.WrapperManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.WrapperManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SearchAThing.DocX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SearchAThing.DocX.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

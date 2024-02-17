@@ -1,0 +1,538 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>netcore-docx | netcore-docx </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="netcore-docx | netcore-docx ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/devel0/netcore-docx/blob/docs/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="netcore-docx">
+            netcore-docx
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="netcore-docx">netcore-docx</h1>
+
+<p><a href="https://www.nuget.org/packages/netcore-docx/"><img src="https://buildstats.info/nuget/netcore-docx" alt="NuGet Badge"></a></p>
+<p>.NET core docx</p>
+<ul>
+<li><a href="https://devel0.github.io/netcore-docx/html/class_search_a_thing_1_1_doc_x_1_1_doc_x_ext.html">API Documentation</a></li>
+<li><a href="https://github.com/devel0/netcore-docx/commits/master">Changelog</a></li>
+</ul>
+<hr>
+<!-- TOC -->
+<ul>
+<li><a href="#description">description</a></li>
+<li><a href="#quickstart">quickstart</a>
+<ul>
+<li><a href="#document-creation">document creation</a></li>
+<li><a href="#document-default-main-section-properties-library">document default, main section properties, library</a></li>
+<li><a href="#title-and-subtitle">title and subtitle</a></li>
+<li><a href="#toc">toc</a></li>
+<li><a href="#font-family-size-color-paragraph-properties">font family, size, color, paragraph properties</a></li>
+<li><a href="#custom-paragraph-style">custom paragraph style</a></li>
+<li><a href="#find-and-replace">find and replace</a></li>
+<li><a href="#images">images</a></li>
+<li><a href="#tables">tables</a></li>
+<li><a href="#numbering">numbering</a></li>
+</ul>
+</li>
+<li><a href="#todo">TODO</a></li>
+<li><a href="#debugging">debugging</a></li>
+<li><a href="#unit-test">unit test</a></li>
+<li><a href="#install">install</a></li>
+<li><a href="#how-this-project-was-built">how this project was built</a></li>
+<li><a href="#references">references</a></li>
+</ul>
+<!-- TOCEND -->
+<hr>
+<h2 id="description">description</h2>
+<p>This is an extension methods set for <a href="https://github.com/OfficeDev/Open-XML-SDK">OpenXML SDK</a>.</p>
+<p>This mean that there aren't wrapping classes around document, paragraph, run, style, etc... but extension methods that cohexists within OpenXML SDK.</p>
+<p>This allow you to use any OpenXML SDK infrastructure in addition to provided simplified extensions methods without these interfere with a custom approach.</p>
+<h2 id="quickstart">quickstart</h2>
+<p><a href="examples/0001/Program.cs">example</a> shows basic usage through <a href="sampledocs/SampleDoc2.cs">sampledoc</a></p>
+<h3 id="document-creation">document creation</h3>
+<p>You can open an existing doc or create an empty docx eventually as a copy of an existing prestyled template document:</p>
+<pre><code class="lang-cs">using DocumentFormat.OpenXml.Wordprocessing;
+using DColor = System.Drawing.Color;
+
+using SearchAThing.DocX;
+using SearchAThing;
+
+namespace examples;
+
+class Program
+{
+    static void Main(string[] args)
+    {        
+        var outputPathfilename = System.IO.Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.Desktop), &quot;out.docx&quot;);
+                
+        // note: initialize new empty document into given pathfilename saving for first time
+        using (var doc = DocXToolkit.Create(outputPathfilename))
+        {
+            doc.AddParagraph(&quot;Sample paragraph&quot;);
+
+            // note: remember to call doc.Finalize() to release associated dynamic resources
+            doc.Finalize();
+        }
+
+        var psi = new ProcessStartInfo(outputPathfilename);
+        psi.UseShellExecute = true;
+        Process.Start(psi);
+    }
+}
+
+</code></pre>
+<ul>
+<li>is highly suggested to call <code>Finalize()</code> method at the end of document usage to release resources allocated per document ( style libraries, state variables, ... ).</li>
+<li><code>DColor</code> is an alias for <code>System.Drawing.Color</code></li>
+</ul>
+<h3 id="document-default-main-section-properties-library">document default, main section properties, library</h3>
+<pre><code class="lang-cs">doc
+    .SetDocDefaults(runFontName: &quot;Arial&quot;);
+
+doc
+    .MainSectionProperties().SetPageSize(PaperSize.A4, PageOrientationValues.Portrait);
+
+var titleStyle = doc.GetPredefinedStyle(LibraryStyleEnum.Title);
+var subTitleStyle = doc.GetPredefinedStyle(LibraryStyleEnum.Subtitle);
+
+var heading1Style = doc.GetPredefinedStyle(LibraryStyleEnum.Heading1);
+var heading2Style = doc.GetPredefinedStyle(LibraryStyleEnum.Heading2);
+
+var tableStyle = doc.GetPredefinedStyle(LibraryStyleEnum.Table);
+var figureStyle = doc.GetPredefinedStyle(LibraryStyleEnum.Figure);
+</code></pre>
+<ul>
+<li><code>SetDocDefaults()</code> change default font, size, spacing, indentation, justification</li>
+<li><code>MainSectionProperties()</code> allow access to base Section Properties; these will be used as backing store for actual section properties until you introduce a new one</li>
+<li><code>GetPredefinedStyle()</code> retrieve one of predefined style ( see LibraryStyleEnum ) ; these styles came from a library that is instantiated foreach document through per document resources object ( because of specific number id, and other properties ).</li>
+</ul>
+<h3 id="title-and-subtitle">title and subtitle</h3>
+<p><img src="data/img/demo_01.png" alt=""></p>
+<pre><code class="lang-cs">doc
+    .AddParagraph(&quot;netcore-docx&quot;, titleStyle);
+
+doc
+    .AddParagraph(&quot;Demo document&quot;, subTitleStyle);
+</code></pre>
+<ul>
+<li>AddParagraph allow to insert a text and specify style to use for paragraph</li>
+</ul>
+<h3 id="toc">toc</h3>
+<p><img src="data/img/demo_02.png" alt="">
+note: TOC field updated from wordprocessor at first open ( not by the api )</p>
+<p><img src="data/img/demo_03.png" alt=""></p>
+<pre><code class="lang-cs">doc
+    .AddParagraph()
+    .SectionProperties() // here a new section property will instantiated                        
+        .SetHeader(header =&gt; header.AddParagraph(&quot;netcore-docx - Demo document&quot;))
+        .SetFooter(footer =&gt; footer
+            .AddParagraph(&quot;Page &quot;)
+            .AddField(FieldEnum.PAGE)
+            .AddText(&quot; of &quot;)
+            .AddField(FieldEnum.NUMPAGES)
+            .SetJustification(JustificationValues.Center)
+        );
+
+doc
+    .AddToc(&quot;Table of Contents&quot;)
+    .AddParagraph();
+
+doc
+    .AddBreak();
+</code></pre>
+<ul>
+<li><code>AddToc()</code> insert a predefined sdt block ( see <code>GenerateSdtBlock()</code> ) and trigger <code>UpdateFieldsOnOpen</code> because the TOC couldn't created at this model level without having exact page number position of elements that depends on document renderer program.</li>
+</ul>
+<h3 id="font-family-size-color-paragraph-properties">font family, size, color, paragraph properties</h3>
+<p><img src="data/img/demo_04.png" alt=""></p>
+<pre><code class="lang-cs">doc
+    .AddParagraph(&quot;Font family, size, color, paragraph properties&quot;, heading1Style)
+    .EnableAutoNumbering()
+
+    .AddParagraph(&quot;some normal paragraph&quot;)
+    .AddParagraph(&quot;line with space before 5mm&quot;).SetSpacingBetweenLines(beforeMM: 5)
+    .AddParagraph(&quot;line with space after 5mm&quot;).SetSpacingBetweenLines(afterMM: 5)
+    .AddParagraph(&quot;bold mode&quot;).SetBold()
+    .AddParagraph(&quot;italic mode&quot;).SetItalic()
+    .AddParagraph(&quot;underline mode&quot;).SetUnderline()
+
+    .AddParagraph(&quot;some color &quot;)
+        .AddRun(&quot;red&quot;, action: run =&gt; run.SetColor(DColor.Red))
+        .AddRun(&quot; green&quot;, action: run =&gt; run.SetColor(DColor.Green))
+        .AddRun(&quot; blue&quot;, action: run =&gt; run.SetColor(DColor.Blue))
+
+    .AddParagraph(&quot;paragraph shading&quot;)
+    .IncAutoNumbering()
+        .AddParagraph(&quot;orange, clear&quot;).SetShading(DColor.Orange)
+    .DecAutoNumbering()
+
+    .AddParagraph(&quot;run shading&quot;)
+        .IncAutoNumbering()
+        .AddParagraph(&quot;clear &quot;)
+            .AddRun(&quot;red&quot;, action: run =&gt; run.SetShading(DColor.Red, ShadingPatternValues.Clear))
+            .AddSpace().AddRun(&quot;green&quot;, action: run =&gt; run.SetShading(DColor.Green, ShadingPatternValues.Clear))
+            .AddSpace().AddRun(&quot;blue&quot;, action: run =&gt; run.SetShading(DColor.Blue, ShadingPatternValues.Clear))
+        .DecAutoNumbering()
+
+    .DisableAutoNumbering();
+
+doc
+    .AddBreak();
+</code></pre>
+<ul>
+<li><code>EnableAutoNumbering()</code> is an helper to auto set numbering mode on any paragraph inserted after this command succeed; this command flag a value into per document resources object allowing DocX methods extensions to know that <code>SetNumbering()</code> has to be applied silently until <code>DisableAutoNumbering()</code> clear this behavior; during auto numbering <code>IncAutoNumbering()</code> and <code>DecAutoNumbering()</code> allow to increase/decrease numbering level (indentation). If don't want to use auto numbering you can set per paragraph numbering using <code>SetNumbering()</code>.</li>
+<li><code>SetShading()</code> can applied with different behavior to a single Run or to an entire Paragraph.</li>
+<li><code>AddBreak()</code> adds a manual page break ( if want to change section use <code>.SectionProperties()</code> instead )</li>
+</ul>
+<h3 id="custom-paragraph-style">custom paragraph style</h3>
+<p><img src="data/img/demo_05.png" alt=""></p>
+<pre><code class="lang-cs">doc
+    .AddParagraph(&quot;Custom paragraph properties&quot;, heading1Style);
+
+{
+    var myStyle1 = doc.AddParagraphSyle(&quot;myStyle1&quot;,
+        runFontName: &quot;Times New Roman&quot;,
+        runFontColor: DColor.Blue,
+        runFontSizePt: 14,
+        spacingBetweenLinesOpts: new SpacingBetweenLinesOptions { AfterMM = 5 },
+        indentationOpts: new IndentationOptions { },
+        justification: JustificationValues.Left);
+
+    doc.AddParagraph(&quot;paragraph with myStyle1&quot;, myStyle1);
+
+    var myStyle2 = doc.AddParagraphSyle(&quot;myStyle2&quot;,
+        runFontColor: DColor.Red,
+        basedOn: myStyle1);
+
+    doc.AddParagraph(&quot;paragraph with myStyle2 based on myStyle1&quot;, myStyle2);
+}
+</code></pre>
+<ul>
+<li>with <code>AddParagraphStyle()</code> you can add a new paragraph style from scratch ; if you can starts from a template docx may you find easily to prepare styles needed instead of creating them programmatically.</li>
+</ul>
+<h3 id="find-and-replace">find and replace</h3>
+<p><img src="data/img/demo_06.png" alt=""></p>
+<pre><code class="lang-cs">doc
+    .AddParagraph(&quot;Find replace&quot;, heading1Style);
+
+Paragraph? pref = null;
+
+doc
+    .AddParagraph(&quot;This &quot;)
+        .AddRun(&quot;wor&quot;, run =&gt; run.SetColor(DColor.Red))
+        .AddRun(&quot;ld&quot;, run =&gt; run.SetColor(DColor.Green))
+        .AddRun(&quot;s&quot;, run =&gt; run.SetColor(DColor.Blue))
+        .AddRun(&quot; text&quot;)
+        .Act(p =&gt; pref = p)
+    .AddParagraph($&quot;Is composed by {pref!.GetRuns().Count()} runs&quot;)
+    .AddParagraph(&quot;where the word \&quot;worlds\&quot; is composed by 3 runs&quot;);
+
+var search = doc.FindText(&quot;worlds&quot;);
+
+doc
+    .AddParagraph(
+        $&quot;Searching the word \&quot;worlds\&quot; in previous text results in {search.Count} occurrences:&quot;);
+
+foreach (var match in search)
+{
+    doc
+        .AddParagraph($&quot;paragraph: [&quot;)
+            .AddRuns(match.Paragraph.GetRuns().Select(r =&gt; (Run)r.Clone()))
+            .AddRun($&quot;] contains {match.Runs.Count} matching runs:&quot;)
+            .SetNumbering(0, NumberFormatValues.Decimal);
+
+    foreach (var matchingrun in match.Runs)
+    {
+        doc.AddParagraph()
+            .AddRun(((Run)matchingrun.Clone()).Act(run =&gt;
+                run.SetShading(DColor.Yellow)))
+            .SetNumbering(1, NumberFormatValues.Bullet);
+    }
+}
+
+doc
+    .AddBreak();
+</code></pre>
+<ul>
+<li><code>FindText()</code> actually works by searching text occurrence in all the document and returns a list of paragraphs that contains occurrence.</li>
+<li><code>FindAndReplace()</code> like FindText() works over all document contents by searching text and replacing with text substitution specified; specifically it can replace existing text runs by maintaining their run properties until replaced text length not exceeded the existant one and using last run properties for remaining addictional text; an option <code>SplitAndCreateSingleRun</code> allow to replace matching multiple run into single run by trimming and stitching in order to ensure that replaced text will exists in a single run ( could used to uniform as a single run some template document keyword edited by hand causing multiple run across a single keyword to be used subsequently for an automated document creation )</li>
+</ul>
+<h3 id="images">images</h3>
+<p><img src="data/img/demo_07.png" alt=""></p>
+<p><img src="data/img/demo_08.png" alt=""></p>
+<p><img src="data/img/demo_09.png" alt=""></p>
+<pre><code class="lang-cs">doc
+    .AddParagraph(&quot;Images&quot;, heading1Style)
+    .AddParagraph(&quot;Image with original size&quot;, heading2Style)
+    .AddImage(img01pathfilename)
+    .AddParagraph()
+
+    .AddParagraph(&quot;Image keep aspect Width = 50mm&quot;, heading2Style)
+    .AddImage(img01pathfilename, widthMM: 50)
+    .AddParagraph()
+
+    .AddParagraph(&quot;Image keep aspect Height = 50mm&quot;, heading2Style)
+    .AddImage(img01pathfilename, heightMM: 50)
+    .AddParagraph()
+
+    .AddParagraph(&quot;Image unconstrained width:50mm height:50mm&quot;, heading2Style)
+    .AddImage(img01pathfilename, widthMM: 50, heightMM: 50)
+    .AddParagraph()
+
+    .AddTable()
+        .AddColumns(3, 1)
+        .AddRow(row =&gt;
+        {
+            row.GetCell(0)
+                .SetParagraph(&quot;Left&quot;)
+                .AddImage(img01pathfilename, widthMM: 30)
+                .SetJustification(JustificationValues.Left);
+
+            row.GetCell(1)
+                .SetParagraph(&quot;Center&quot;)
+                .AddImage(img01pathfilename, widthMM: 30)
+                .SetJustification(JustificationValues.Center);
+
+            row.GetCell(2)
+                .SetParagraph(&quot;Right&quot;)
+                .AddImage(img01pathfilename, widthMM: 30)
+                .SetJustification(JustificationValues.Right);
+
+            var cellsCount = row.Elements&lt;TableCell&gt;().Count();
+            for (int i = 0; i &lt; cellsCount; ++i) row.GetCell(i).SetPadding(2);
+        })
+        .SetBorderAll()
+    .AddBreak();
+</code></pre>
+<ul>
+<li><code>AddImage()</code> adds an inline image into a paragraph or a run ; if not specified the type if auto states type from file extension ; <code>dpi</code> if present are used to state original dimension and aspect ratio ; can be inserted without specify width, height to use original dimension or constraining one of them keeping aspect ratio or constraining all of them to force stretched version.</li>
+</ul>
+<h3 id="tables">tables</h3>
+<p><img src="data/img/demo_10.png" alt=""></p>
+<pre><code class="lang-cs">doc
+    .AddParagraph(&quot;Table with Field types&quot;, heading1Style);
+
+var tbl = doc
+    .AddTable(tableWidthPercent: 50)
+    .AddColumn(1).AddColumn(1);
+
+tbl.AddRow(row =&gt;
+{
+    row.GetCell(0)
+        .SetShading(DColor.Navy)
+        .SetParagraph(&quot;FIELD NAME&quot;, run =&gt; run.SetBold().SetColor(DColor.White))
+        .SetUniformMargin(2);
+
+    row.GetCell(1)
+        .SetShading(DColor.Navy)
+        .SetParagraph(&quot;SAMPLE&quot;, run =&gt; run.SetBold().SetColor(DColor.White))
+        .SetUniformMargin(2);
+});
+
+foreach (var t in Enum.GetValues&lt;FieldEnum&gt;())
+{
+    tbl.AddRow(row =&gt;
+    {
+        row.GetCell(0).SetParagraph(t.ToString(), run =&gt; run.SetBold()).SetUniformMargin(2);
+        row.GetCell(1).GetFirstChild&lt;Paragraph&gt;()!.AddField(t).SetUniformMargin(2);
+    });
+}
+
+// short version
+//tbl.SetBordersOutside(BorderValues.Single);                
+
+// custom version
+tbl.SetBorders((args) =&gt;
+{
+    if (args.colIdx == 0) 
+        args.leftBorder = new LeftBorder() { Val = BorderValues.Single };
+
+    if (args.rowIdx == 0) 
+        args.topBorder = new TopBorder() { Val = BorderValues.Single };
+
+    if (args.colIdx == args.colCount - 1) 
+        args.rightBorder = new RightBorder() { Val = BorderValues.Single };
+
+    if (args.rowIdx == args.rowCount - 1) 
+        args.bottomBorder = new BottomBorder() { Val = BorderValues.Single };
+});
+
+doc
+    .AddBreak();
+</code></pre>
+<ul>
+<li>paragraph <code>AddTable()</code> adds a table with specified % width or if null auto computed from columns</li>
+<li>table <code>AddColumn()</code> adds column to the table specifying an exact MM measure if table work with fixed width ( tableWidthPercent: null ); instead of table uses a % width the column widthMM will normalized across all columns to reach table width extents.</li>
+<li>table <code>AddRow()</code> adds an empty row already filled with enough cells to cover actual table columns</li>
+<li>row <code>GetCell()</code> retrieve Table Cell from which you may use <code>.SetParagraph()</code> in place of <code>.AddParagraph()</code> because empty cells prepared with an empty paragraph.
+<ul>
+<li>an helper row <code>SetUniformMargin()</code> allow to set margin around cell contents</li>
+</ul>
+</li>
+<li>table <code>SetBordersOutside()</code> sets outer table cells border to Single or specified Border type. Alternatively <code>SetBordersAll()</code> or <code>SetBorders()</code> can be used to set all cells outer/inner or custom border.</li>
+</ul>
+<h3 id="numbering">numbering</h3>
+<p><img src="data/img/demo_11.png" alt=""></p>
+<pre><code class="lang-cs">doc
+    .AddParagraph(&quot;Numbering&quot;, heading1Style)
+
+    .AddParagraph(&quot;Bullet list&quot;, heading2Style)
+    .AddParagraph(&quot;sample1&quot;).SetNumbering(0)
+    .AddParagraph(&quot;sample2&quot;).SetNumbering(1)
+    .AddParagraph(&quot;sample2&quot;).SetNumbering(0)
+
+    .AddParagraph(&quot;Decimal list&quot;, heading2Style)
+    .AddParagraph(&quot;sample1&quot;).SetNumbering(0, NumberFormatValues.Decimal, restartNumbering: true)
+    .AddParagraph(&quot;sample2x&quot;).SetNumbering(1, NumberFormatValues.Decimal)
+    .AddParagraph(&quot;sample2&quot;).SetNumbering(0, NumberFormatValues.Decimal)
+
+    .AddParagraph(&quot;Structured Decimal list&quot;, heading2Style)
+    .AddParagraph(&quot;sample1&quot;).SetNumbering(0, NumberFormatValues.Decimal, structured: true)
+    .AddParagraph(&quot;sample2&quot;).SetNumbering(1, NumberFormatValues.Decimal, structured: true)
+    .AddParagraph(&quot;sample2&quot;).SetNumbering(0, NumberFormatValues.Decimal, structured: true);
+
+doc
+    .AddBreak();
+</code></pre>
+<ul>
+<li><code>SetNumbering(level, [format:bullet], [structured:false])</code> allow to specify that a paragraph is marked in its property to be a numbering ; <code>level</code> specify indentation level 0...9 ; <code>format</code> specify the type of numering ( actually library supports None, Bullet, Decimal ) ; <code>structured: true</code> used in conjunction with Decimal format allow to enumerate inside levels with recall of parent levels.</li>
+</ul>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>double check document validate errors</li>
+</ul>
+<h2 id="debugging">debugging</h2>
+<ul>
+<li>useful tools : <a href="https://github.com/OfficeDev/Open-XML-SDK/releases/tag/v2.5">OpenXML SDK Tools 2.5</a></li>
+</ul>
+<h2 id="unit-test">unit test</h2>
+<pre><code class="lang-sh">dotnet test
+</code></pre>
+<h2 id="install">install</h2>
+<ul>
+<li><a href="https://www.nuget.org/packages/netcore-docx/">nuget package</a></li>
+</ul>
+<h2 id="how-this-project-was-built">how this project was built</h2>
+<pre><code class="lang-sh">mkdir netcore-docx
+cd netcore-docx
+
+dotnet new sln
+dotnet new classlib -n netcore-docx
+
+cd netcore-docx
+dotnet add package DocumentFormat.OpenXml --version 2.8.1
+cd ..
+
+dotnet sln netcore-docx.sln add netcore-docx/netcore-docx.csproj
+dotnet restore
+dotnet build
+</code></pre>
+<h2 id="references">references</h2>
+<ul>
+<li><a href="https://github.com/OfficeDev/office-content/tree/master/en-us/OpenXMLCon">open xml sdk doc</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/devel0/netcore-docx/blob/docs/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
