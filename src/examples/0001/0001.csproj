@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">  
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>examples</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <None Include="templates/*.docx" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="imgs/*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\docx\netcore-docx.csproj" />
+    <ProjectReference Include="..\..\sampledocs\sampledocs.csproj" />
+  </ItemGroup>
+
+</Project>
