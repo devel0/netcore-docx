@@ -333,3 +333,6 @@ lcov.info
 lcov.opencover.xml
 
 .~lock*#
+
+/docs
+/api
