@@ -10,24 +10,24 @@
 <hr/>
 
 <!-- TOC -->
-* [description](#description)
-* [quickstart](#quickstart)
-  + [document creation](#document-creation)
-  + [document default, main section properties, library](#document-default-main-section-properties-library)
-  + [title and subtitle](#title-and-subtitle)
-  + [toc](#toc)
-  + [font family, size, color, paragraph properties](#font-family-size-color-paragraph-properties)
-  + [custom paragraph style](#custom-paragraph-style)
-  + [find and replace](#find-and-replace)
-  + [images](#images)
-  + [tables](#tables)
-  + [numbering](#numbering)
-* [TODO](#todo)
-* [debugging](#debugging)
-* [unit test](#unit-test)
-* [install](#install)
-* [how this project was built](#how-this-project-was-built)
-* [references](#references)
+- [description](#description)
+- [quickstart](#quickstart)
+  - [document creation](#document-creation)
+  - [document default, main section properties, library](#document-default-main-section-properties-library)
+  - [title and subtitle](#title-and-subtitle)
+  - [toc](#toc)
+  - [font family, size, color, paragraph properties](#font-family-size-color-paragraph-properties)
+  - [custom paragraph style](#custom-paragraph-style)
+  - [find and replace](#find-and-replace)
+  - [images](#images)
+  - [tables](#tables)
+  - [numbering](#numbering)
+- [TODO](#todo)
+- [debugging](#debugging)
+- [unit test](#unit-test)
+- [install](#install)
+- [how this project was built](#how-this-project-was-built)
+- [references](#references)
 <!-- TOCEND -->
 
 <hr/>
@@ -42,7 +42,7 @@ This allow you to use any OpenXML SDK infrastructure in addition to provided sim
 
 ## quickstart
 
-[example](examples/0001/Program.cs) shows basic usage through [sampledoc](sampledocs/SampleDoc2.cs)
+[example](src/examples/0001/Program.cs) shows basic usage through [sampledoc](src/sampledocs/SampleDoc2.cs)
 
 ### document creation
 
