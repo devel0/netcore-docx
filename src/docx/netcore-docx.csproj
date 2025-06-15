@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.1</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1;net9.0</TargetFrameworks>
         <RootNamespace>SearchAThing.DocX</RootNamespace>
         <LangVersion>12</LangVersion>
         <Nullable>enable</Nullable>
@@ -17,6 +17,6 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="DocumentFormat.OpenXml" Version="$(DocumentFormatOpenXmlVersion)" />
-        <PackageReference Include="netcore-util" Version="$(NetcoreUtilVersion)" />        
-    </ItemGroup>    
+        <PackageReference Include="netcore-util" Version="$(NetcoreUtilVersion)" />
+    </ItemGroup>
 </Project>
